@@ -1,6 +1,6 @@
 require('minitest/autorun')
 require('minitest/rg')
-require_relative('../classes.rb')
+require_relative('../library.rb')
 
 class TestClasses_library < Minitest::Test
 
@@ -48,9 +48,10 @@ class TestClasses_library < Minitest::Test
     assert_equal(5, @library.library.length)
   end
 
-  # def test_change_rental_details
-  #   rented_book = "Learn Ruby"
-  #   @library.library[][:rental_details][:date] = "01/01/2010"
-  #   assert_equal(01/01/2010, @library.library[1][:rental_details][:date])
-  # end
+  def test_change_rental_details
+    @library.change_rental_details("Learn Ruby", "Pim", "03/05/46")
+    assert_equal("Pim", @library.library[1][:rental_details][:student_name])
+    assert_equal("03/05/46", @library.library[1][:rental_details][:date])
+  end
+
 end
