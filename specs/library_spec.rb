@@ -48,10 +48,9 @@ class TestClasses_library < Minitest::Test
     assert_equal(5, @library.library.length)
   end
 
-  def test_change_rental_details
-    @library.change_rental_details("Learn Ruby", "Pim", "03/05/46")
-    assert_equal("Pim", @library.library[1][:rental_details][:student_name])
-    assert_equal("03/05/46", @library.library[1][:rental_details][:date])
+  def test_change_details
+    @library.change_details("Harry Potter", "Martha", "22/07/1999")
+    assert_equal(@library.library[2][:rental_details][:student], "Martha")
   end
 
 end
